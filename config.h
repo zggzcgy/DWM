@@ -8,8 +8,8 @@ static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[]          = { 
 	"WenQuanYi Micro Hei:size=10",
-	"VL Gothic:size=41.5",
-	"monospace:size=11"
+	"VL Gothic:size=10",
+	"monospace:size=10"
 };
 static const char dmenufont[]       = "monospace:size=10";
 static const char col_gray1[]       = "#222222";
