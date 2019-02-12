@@ -37,8 +37,6 @@ static const Rule rules[] = {
 	{ "Gimp",       NULL,       NULL,       1 << 4,         1,              -1 },
 	{ "Steam",      NULL,       NULL,       1 << 5,         1,              -1 },
 	{ "Vmware",     NULL,       NULL,       1 << 6,         0,              -1 },
-	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
-	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 },
 };
 
 /* layout(s) */
@@ -68,8 +66,9 @@ static const Layout layouts[] = {
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]   = { "xterm", NULL };
-static const char *upvol[]     = { "amixer", "set", "Master", "2+", NULL };
-static const char *downvol[]   = { "amixer", "set", "Master", "2-", NULL };
+static const char *upvol[]     = { "amixer", "set", "Master", "2%+", NULL };
+static const char *downvol[]   = { "amixer", "set", "Master", "2%-", NULL };
+static const char *mutevol[]      = { "amixer", "set", "Master", "toggle", NULL};
 static const char *upback[]    = { "xbacklight", "-inc", "2", NULL };
 static const char *downback[]  = { "xbacklight", "-dec", "2", NULL };
 static const char *scrot[]     = { "scrot", "--exec", "mv $f ~/pictures", "%F_%H%M%S.png", NULL };
@@ -102,6 +101,7 @@ static Key keys[] = {
 	{ 0,                            XK_Print,  spawn,          {.v = scrot } },
 	{ 0,            XF86XK_AudioLowerVolume,   spawn,          {.v = downvol } },
 	{ 0,            XF86XK_AudioRaiseVolume,   spawn,          {.v = upvol } },
+	{ 0,            XF86XK_AudioMute,	   spawn,          {.v = mutevol } },
 	{ 0,            XF86XK_MonBrightnessUp,    spawn,          {.v = upback } },
 	{ 0,            XF86XK_MonBrightnessDown,  spawn,          {.v = downback } },
 	TAGKEYS(                        XK_1,                      0)
